@@ -1,4 +1,6 @@
 <h1><%= @task.title %></h1>
+<p><%= link_to 'Edit task', task_edit_path(@task),
+method: :get %></p>
 <p><%= @task.details %></p>
 <% if @task.completed %>
   <input type="checkbox" id="completed" name="completed" checked>
