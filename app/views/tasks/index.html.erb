@@ -2,16 +2,26 @@
 <% @tasks.each do |task| %>
   <p>
   <% if task.completed %>
-    <input type="checkbox" checked>
+    <i class="far fa-check-circle"></i>
+    <!-- input type="checkbox" checked -->
   <% else %>
-    <input type="checkbox">
+    <i class="far fa-circle"></i>
+    <!-- input type="checkbox" -->
   <% end %>
     <%= link_to task.title, task_path(task.id) %>
-    <%= link_to 'Delete task', task_delete_path(task),
+    <!--%= link_to 'Delete task', task_delete_path(task),
       method: :delete,
-      data: { confirm: "Are you sure ?" } %>
-      <div><i class="far fa-trash-alt"></i></div>
+      data: { confirm: "Are you sure ?" } % -->
+    <!-- div><i class="far fa-trash-alt"></i></div -->
+
+    <%= link_to(task_delete_path(task), method: :delete, data: {confirm: "are you sure?"}) do %>
+        <i class="fas fa-trash"></i>
+    <% end %>
   </p>
 <% end %>
 
-<%= link_to '+ Add new task', task_new_path %>
+<p>
+<%= link_to task_new_path do %>
+  <i class="fa-solid fa-square-plus"></i> Add new task
+<% end %>
+</p>

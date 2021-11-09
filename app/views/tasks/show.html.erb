@@ -1,12 +1,19 @@
 <h1><%= @task.title %></h1>
-<p><%= link_to 'Edit task', task_edit_path(@task),
-method: :get %></p>
+<p>
+<%= link_to task_edit_path(@task),
+  method: :get do %>
+  <i class="fa-solid fa-pen-to-square"></i> Edit task
+<% end %>
+</p>
 <p><%= @task.details %></p>
+<p>
 <% if @task.completed %>
-  <input type="checkbox" id="completed" name="completed" checked>
+  <i class="far fa-check-circle"></i>
   The task is completed
 <% else %>
-  <input type="checkbox" id="completed" name="completed">
+  <i class="far fa-circle"></i>
+  <!-- input type="checkbox" id="completed" name="completed" -->
   The task is not completed yet
 <% end %>
-<p><%= link_to 'Back to list', tasks_path %></p>
+</p>
+<p><%= link_to 'Back to list', tasks_path, class: 'btn btn-dark' %></p>

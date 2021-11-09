@@ -1,9 +1,10 @@
-<%= form_for(task) do |t| %>
-  <%= t.label :title %>
-  <%= t.text_field :title %>
-  <%= t.label :details %>
-  <%= t.text_field :details %>
-  <%= t.label :completed %>
-  <%= t.check_box :completed %>
-  <%= t.submit %>
+<%= simple_form_for(task) do |f| %>
+  <!-- %= f.text_field :title % -->
+  <!-- %= f.text_field :details % -->
+  <!-- %= f.check_box :completed, label: 'completed' % -->
+  <!-- %= f.submit 'Valider', class: 'btn btn-primary' % -->
+  <%= f.input :title %>
+  <%= f.input :details %>
+  <%= f.input :completed %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
